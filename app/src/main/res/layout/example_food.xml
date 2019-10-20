@@ -23,10 +23,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/imageView"
             android:layout_toRightOf="@+id/imageView"
             android:text="food"
             android:textColor="@android:color/black"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <TextView
@@ -34,6 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView"
+            android:layout_marginStart="11dp"
             android:layout_toRightOf="@id/imageView"
             android:text="blurb"
             android:textColor="@android:color/black"
@@ -45,10 +48,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_gravity="right"
-            android:layout_marginTop="30dp"
             android:layout_marginEnd="8dp"
             android:text="price"
-            android:textSize="30sp" />
+            android:textColor="#00000000"
+            android:textSize="30sp"
+            android:textStyle="italic" />
 
     </RelativeLayout>
 

@@ -3,8 +3,8 @@ package com.example.maccos;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,7 +16,7 @@ public class Order extends AppCompatActivity {
 
     private RecyclerView oRecyclerView;
     private RecyclerView.LayoutManager oLayoutManager;
-    public TextView status;
+    public static TextView status;
     public static TextView itemCount;
     public Button clearOrder;
     public static TextView totalPrice;
@@ -38,31 +38,32 @@ public class Order extends AppCompatActivity {
         clearOrder.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                orderList.clear();
-                orderPrices.clear();
-                startActivity(getIntent());
-                finish();
-                overridePendingTransition(0, 0);
+                if (orderList.size() < 1){
+                    Toast.makeText(Order.this, "Order Already Empty!", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    orderList.clear();
+                    orderPrices.clear();
+                    startActivity(getIntent());
+                    finish();
+                    overridePendingTransition(0, 0);
+                }
             }
         });
 
         int items = orderList.size();
-        itemCount.setText(items + " Items Overall");
+        itemCount.setText(items + " " + getString(R.string.items_overall));
 
         if (orderList.size() < 1 || orderPrices.size() < 1) {
-            status.setText("No items in order.");
-            totalPrice.setText("$0.00");
+            status.setText(getString(R.string.no_items_in_order));
+            totalPrice.setText(getString(R.string.zero));
+
         } else {
             status.setText("");
-
             oRecyclerView = findViewById(R.id.recyclerView2);
             oLayoutManager = new LinearLayoutManager(this);
             oRecyclerView.setLayoutManager(oLayoutManager);
-
             OrderAdapter orderAdapter = new OrderAdapter();
-
-            // We wrote our setData method to be like a setter, so we give our ArrayList from
-            // FakeDatabase to the Adapter.
             orderAdapter.setData(orderList);
             oRecyclerView.setAdapter(orderAdapter);
         }

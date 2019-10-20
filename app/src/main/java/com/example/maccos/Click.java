@@ -62,6 +62,7 @@ public class Click extends AppCompatActivity {
                         Toast.makeText(Click.this, quantity + " " + text + "(s)" + " added to order", Toast.LENGTH_SHORT).show();
                         Order.orderPrices.add(currentFood.getPrice());
                         Order.orderList.add(currentFood);
+                        finish();
                     }
                 }
             }

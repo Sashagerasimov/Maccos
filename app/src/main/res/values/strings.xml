@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Maccos</string>
+    <string name="items_overall"> Items Overall</string>
+    <string name="no_items_in_order">No items in order.</string>
+    <string name="zero">$0.00</string>
 </resources>

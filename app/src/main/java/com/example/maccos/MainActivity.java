@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         FoodAdapter foodAdapter = new FoodAdapter();
 
-        // We wrote our setData method to be like a setter, so we give our ArrayList from
-        // FakeDatabase to the Adapter.
         foodAdapter.setData(Database.getAllFoods());
         mRecyclerView.setAdapter(foodAdapter);
 
