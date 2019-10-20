@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import static com.example.maccos.Order.itemCount;
 import static com.example.maccos.Order.orderList;
 import static com.example.maccos.Order.orderPrices;
 import static com.example.maccos.Order.totalPrice;
@@ -68,6 +69,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
                 orderList.remove(foodAtPosition);
                 notifyItemRemoved(position);
                 orderPrices.remove(foodAtPosition.getPrice());
+
+                int items = orderList.size();
+                itemCount.setText(items + " Items Overall");
 
                 double sum = 0;
                 for (double i : orderPrices)
